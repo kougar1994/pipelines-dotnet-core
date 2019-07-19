@@ -28,8 +28,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: CopyFiles@2
+- task: PublishBuildArtifacts@1
   inputs:
-    SourceFolder: '$(Build.ArtifactStagingDirectory)'
-    Contents: '**\bin\$(BuildConfiguration)\**'
-    TargetFolder: 'C:\Repos'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
